@@ -17,4 +17,8 @@ describe('filterResources', () => {
     const result = filterResources(mockResources, 'wellbeing');
     expect(result).toEqual([mockResources[1]]);
   });
+
+  it('returns all resources when query is empty', () => {
+    expect(filterResources(mockResources, '')).toEqual(mockResources);
+  });
 });
