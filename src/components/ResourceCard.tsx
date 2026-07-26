@@ -5,5 +5,10 @@ interface Props {
 }
 
 export function ResourceCard({ resource }: Props) {
-  return <div>{resource.title}</div>;
+  return (
+    <div>
+      <img src={resource.thumbnail} alt={resource.title} />
+      {resource.title}
+    </div>
+  );
 }
