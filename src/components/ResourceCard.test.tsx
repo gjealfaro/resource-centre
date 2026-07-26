@@ -1,0 +1,21 @@
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import { ResourceCard } from "./ResourceCard";
+
+const mockResource = {
+  id: "001",
+  category: "Podcasts",
+  title: "Mindful Moments",
+  thumbnail: "https://example.com/photo.jpg",
+  tags: ["wellbeing", "mindfulness", "relaxation"],
+  duration: 25,
+  description: "A calming podcast.",
+  date_uploaded: "2025-07-10",
+};
+
+describe("ResourceCard", () => {
+  it("renders the resource title", () => {
+    render(<ResourceCard resource={mockResource} />);
+    expect(screen.getByText("Mindful Moments")).toBeInTheDocument();
+  });
+});
