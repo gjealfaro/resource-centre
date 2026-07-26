@@ -1,4 +1,4 @@
-import { Resource } from '../types/Resource';
+import type { Resource } from '../types/Resource';
 
 export function groupByCategory(resources: Resource[]): Record<string, Resource[]> {
   return resources.reduce((acc, resource) => {

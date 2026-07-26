@@ -1,6 +1,6 @@
 import { groupByCategory } from "../utils/groupByCategory";
 import { ResourceCard } from "./ResourceCard";
-import { Resource } from "../types/Resource";
+import type { Resource } from "../types/Resource";
 
 interface Props {
   resources: Resource[];
