@@ -49,4 +49,14 @@ describe("ResourceCard", () => {
     expect(screen.getByText(mockResource.description)).toBeInTheDocument();
     expect(screen.getByText(mockResource.date_uploaded)).toBeInTheDocument();
   });
+
+  it("does not show description or date before the card is clicked", () => {
+    render(<ResourceCard resource={mockResource} />);
+    expect(
+      screen.queryByText(mockResource.description),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(mockResource.date_uploaded),
+    ).not.toBeInTheDocument();
+  });
 });
