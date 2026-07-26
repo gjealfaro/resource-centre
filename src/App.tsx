@@ -16,7 +16,14 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Resource Centre</h1>
+      <header className="site-header">
+        <img
+          src="/wisdom-wellbeing-transparent.png"
+          alt="Wisdom Wellbeing"
+          className="logo"
+        />
+        <h1>Resource Centre</h1>
+      </header>
       <div className="controls">
         <input
           type="text"
