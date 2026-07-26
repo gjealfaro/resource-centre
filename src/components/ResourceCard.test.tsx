@@ -34,4 +34,10 @@ describe("ResourceCard", () => {
     render(<ResourceCard resource={mockResource} />);
     expect(screen.getByText(/25 min/i)).toBeInTheDocument();
   });
+
+  it("does not render an img element when thumbnail is missing", () => {
+    const resourceWithoutThumbnail = { ...mockResource, thumbnail: "" };
+    render(<ResourceCard resource={resourceWithoutThumbnail} />);
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  });
 });
