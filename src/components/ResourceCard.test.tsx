@@ -59,4 +59,14 @@ describe("ResourceCard", () => {
       screen.queryByText(mockResource.date_uploaded),
     ).not.toBeInTheDocument();
   });
+
+  it("hides description and date when clicked a second time", () => {
+    render(<ResourceCard resource={mockResource} />);
+    const title = screen.getByText(mockResource.title);
+    fireEvent.click(title);
+    fireEvent.click(title);
+    expect(
+      screen.queryByText(mockResource.description),
+    ).not.toBeInTheDocument();
+  });
 });
