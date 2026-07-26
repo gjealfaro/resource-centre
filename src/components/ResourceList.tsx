@@ -14,9 +14,11 @@ export function ResourceList({ resources }: Props) {
       {Object.entries(grouped).map(([category, items]) => (
         <section key={category}>
           <h2>{category}</h2>
-          {items.map((item) => (
-            <ResourceCard key={item.id} resource={item} />
-          ))}
+          <div className="card-grid">
+            {items.map((item) => (
+              <ResourceCard key={item.id} resource={item} />
+            ))}
+          </div>
         </section>
       ))}
     </>

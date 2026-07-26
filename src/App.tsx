@@ -15,22 +15,24 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app">
       <h1>Resource Centre</h1>
-      <input
-        type="text"
-        placeholder="Search by title or tag..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <label>
+      <div className="controls">
         <input
-          type="checkbox"
-          checked={sortEnabled}
-          onChange={(e) => setSortEnabled(e.target.checked)}
+          type="text"
+          placeholder="Search by title or tag..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
-        Sort by most recent
-      </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={sortEnabled}
+            onChange={(e) => setSortEnabled(e.target.checked)}
+          />
+          Sort by most recent
+        </label>
+      </div>
       <ResourceList resources={displayed} />
     </div>
   );

@@ -9,11 +9,16 @@ export function ResourceCard({ resource }: Props) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div>
+    <div className="resource-card">
       {resource.thumbnail && (
         <img src={resource.thumbnail} alt={resource.title} />
       )}
-      <p onClick={() => setExpanded(!expanded)}>{resource.title}</p>
+      <button
+        onClick={() => setExpanded(!expanded)}
+        style={{ all: "unset", cursor: "pointer" }}
+      >
+        {resource.title}
+      </button>
       <ul>
         {resource.tags.map((tag) => (
           <li key={tag}>{tag}</li>
