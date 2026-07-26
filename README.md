@@ -107,5 +107,3 @@ represents one step of the cycle — see commit messages prefixed with
 "Red:", "Green:", or "Refactor:".
 
 ## What I'd Do With More Time
-
-- (fill this in as you go, or at the end)
