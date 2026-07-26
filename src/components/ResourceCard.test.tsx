@@ -1,7 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { ResourceCard } from "./ResourceCard";
-import { render, screen, fireEvent } from "@testing-library/react";
 
 const mockResource = {
   id: "001",
@@ -25,12 +24,14 @@ describe("ResourceCard", () => {
     const img = screen.getByRole("img");
     expect(img).toHaveAttribute("src", mockResource.thumbnail);
   });
+
   it("renders up to 3 tags", () => {
     render(<ResourceCard resource={mockResource} />);
     expect(screen.getByText("wellbeing")).toBeInTheDocument();
     expect(screen.getByText("mindfulness")).toBeInTheDocument();
     expect(screen.getByText("relaxation")).toBeInTheDocument();
   });
+
   it("renders the duration in minutes", () => {
     render(<ResourceCard resource={mockResource} />);
     expect(screen.getByText(/25 min/i)).toBeInTheDocument();
