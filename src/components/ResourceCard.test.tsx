@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { ResourceCard } from "./ResourceCard";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 const mockResource = {
   id: "001",
@@ -39,5 +40,12 @@ describe("ResourceCard", () => {
     const resourceWithoutThumbnail = { ...mockResource, thumbnail: "" };
     render(<ResourceCard resource={resourceWithoutThumbnail} />);
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  });
+
+  it("shows description and date when the card is clicked", () => {
+    render(<ResourceCard resource={mockResource} />);
+    fireEvent.click(screen.getByText(mockResource.title));
+    expect(screen.getByText(mockResource.description)).toBeInTheDocument();
+    expect(screen.getByText(mockResource.date_uploaded)).toBeInTheDocument();
   });
 });

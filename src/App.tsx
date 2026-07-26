@@ -3,10 +3,16 @@ import { ResourceList } from "./components/ResourceList";
 import resourcesData from "./data/resources.json";
 import type { Resource } from "./types/Resource";
 import { filterResources } from "./utils/filterResources";
+import { sortByDate } from "./utils/sortByDate";
 
 function App() {
   const [query, setQuery] = useState("");
-  const filtered = filterResources(resourcesData as Resource[], query);
+  const [sortEnabled, setSortEnabled] = useState(false);
+
+  let displayed = filterResources(resourcesData as Resource[], query);
+  if (sortEnabled) {
+    displayed = sortByDate(displayed);
+  }
 
   return (
     <div>
@@ -17,7 +23,15 @@ function App() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <ResourceList resources={filtered} />
+      <label>
+        <input
+          type="checkbox"
+          checked={sortEnabled}
+          onChange={(e) => setSortEnabled(e.target.checked)}
+        />
+        Sort by most recent
+      </label>
+      <ResourceList resources={displayed} />
     </div>
   );
 }
