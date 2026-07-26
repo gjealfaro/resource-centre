@@ -18,4 +18,10 @@ describe("ResourceCard", () => {
     render(<ResourceCard resource={mockResource} />);
     expect(screen.getByText("Mindful Moments")).toBeInTheDocument();
   });
+
+  it("renders the thumbnail image", () => {
+    render(<ResourceCard resource={mockResource} />);
+    const img = screen.getByRole("img");
+    expect(img).toHaveAttribute("src", mockResource.thumbnail);
+  });
 });
