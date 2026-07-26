@@ -30,4 +30,8 @@ describe("ResourceCard", () => {
     expect(screen.getByText("mindfulness")).toBeInTheDocument();
     expect(screen.getByText("relaxation")).toBeInTheDocument();
   });
+  it("renders the duration in minutes", () => {
+    render(<ResourceCard resource={mockResource} />);
+    expect(screen.getByText(/25 min/i)).toBeInTheDocument();
+  });
 });
