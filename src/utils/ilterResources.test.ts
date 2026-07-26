@@ -12,4 +12,9 @@ describe('filterResources', () => {
     const result = filterResources(mockResources, 'sleep');
     expect(result).toEqual([mockResources[0]]);
   });
+
+  it('filters resources by tag match', () => {
+    const result = filterResources(mockResources, 'wellbeing');
+    expect(result).toEqual([mockResources[1]]);
+  });
 });
