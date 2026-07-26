@@ -24,4 +24,10 @@ describe("ResourceCard", () => {
     const img = screen.getByRole("img");
     expect(img).toHaveAttribute("src", mockResource.thumbnail);
   });
+  it("renders up to 3 tags", () => {
+    render(<ResourceCard resource={mockResource} />);
+    expect(screen.getByText("wellbeing")).toBeInTheDocument();
+    expect(screen.getByText("mindfulness")).toBeInTheDocument();
+    expect(screen.getByText("relaxation")).toBeInTheDocument();
+  });
 });
