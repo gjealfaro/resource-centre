@@ -14,6 +14,7 @@ export function ResourceCard({ resource }: Props) {
           <li key={tag}>{tag}</li>
         ))}
       </ul>
+      <span>{resource.duration} min</span>
     </div>
   );
 }
